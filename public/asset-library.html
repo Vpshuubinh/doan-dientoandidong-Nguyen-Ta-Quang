@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách file | Quang File Transfer</title>
+    <link rel="icon" type="image/jpeg" href="/TQ.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/system.css" />
+  </head>
+  <body>
+    <header class="stc-navbar">
+      <div class="stc-navbar-inner">
+        <a class="stc-brand" href="/" aria-label="Quang File Transfer">
+          <img src="/TQ.jpg" alt="Logo Quang File Transfer" />
+        </a>
+
+        <button id="stcMenuToggle" class="stc-menu-toggle" type="button" aria-label="Mở menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="stc-menu" id="menuNav">
+          <a class="menu-btn" href="/#uploadSection">Đăng file</a>
+          <a class="menu-btn active" href="/danh-sach-file">Danh sách file</a>
+          <a class="menu-btn" href="/thung-rac">Thùng rác</a>
+          <a class="menu-btn" href="/#helpSection">Help</a>
+        </nav>
+
+        <div class="stc-navbar-right" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel">
+        <h1>Danh sách file đã đăng</h1>
+        <p class="muted">Theo dõi các file đã đăng từ hệ thống.</p>
+        <div id="filesContainer" class="table-wrap">Đang tải dữ liệu...</div>
+        <div id="paginationContainer" class="pagination-bar"></div>
+      </section>
+    </main>
+
+    <footer>© 2026 Quang File Transfer • Đồ án sinh viên Nguyễn Tá Quảng</footer>
+
+    <script src="/asset-library.js"></script>
+  </body>
+</html>

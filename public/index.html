@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quang File Transfer | Hệ thống gửi nhận file trực tuyến</title>
+    <link rel="icon" type="image/jpeg" href="/TQ.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/system.css" />
+  </head>
+  <body>
+    <header class="stc-navbar">
+      <div class="stc-navbar-inner">
+        <a class="stc-brand" href="#" aria-label="Quang File Transfer">
+          <img src="/TQ.jpg" alt="Logo Quang File Transfer" />
+        </a>
+
+        <button id="stcMenuToggle" class="stc-menu-toggle" type="button" aria-label="Mở menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="stc-menu" id="menuNav">
+          <a class="menu-btn active" href="/#uploadSection" data-target="uploadSection">Đăng file</a>
+          <a class="menu-btn" href="/danh-sach-file">Danh sách file</a>
+          <a class="menu-btn" href="/thung-rac">Thùng rác</a>
+          <a class="menu-btn" href="/#helpSection" data-target="helpSection">Help</a>
+        </nav>
+
+        <div class="stc-navbar-right" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="uploadSection" class="panel">
+        <h1>Đăng file lên hệ thống</h1>
+        <p class="muted">Kéo thả hoặc chọn file để tải lên (tối đa 1GB), sau đó lấy link gửi cho người khác.</p>
+
+        <form id="uploadForm" class="upload-box">
+          <input id="fileInput" name="file" type="file" hidden required />
+          <div id="dropZone" class="drop-zone" tabindex="0">
+            <strong>Kéo thả file vào đây</strong>
+            <span>hoặc bấm để chọn file từ máy tính</span>
+          </div>
+
+          <div id="filePreview" class="file-preview empty">
+            <div id="fileBadge" class="badge">--</div>
+            <div>
+              <strong id="fileName">Chưa chọn file nào</strong>
+              <span id="fileInfo">Thông tin file sẽ hiển thị tại đây</span>
+            </div>
+          </div>
+
+          <div id="progressCard" class="progress hidden">
+            <div class="progress-head">
+              <span id="progressLabel">Đang tải lên...</span>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="track"><div id="progressBar" class="bar"></div></div>
+          </div>
+
+          <div id="statusMessage" class="status hidden"></div>
+
+          <div class="row">
+            <button type="button" id="browseButton" class="btn">Chọn file</button>
+            <button type="submit" id="uploadButton" class="btn btn-primary">Đăng file</button>
+            <button type="button" id="clearButton" class="btn hidden">Xóa lựa chọn</button>
+          </div>
+        </form>
+
+        <div id="resultBox" class="result hidden">
+          <span>Link tải file</span>
+          <div class="row">
+            <input id="fileLink" type="text" readonly />
+            <button id="copyButton" class="btn" type="button">Copy link</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="listSection" class="panel hidden">
+        <h2>Danh sách file đã đăng</h2>
+        <div class="table-wrap" id="filesTableContainer"></div>
+      </section>
+
+      <section id="trashSection" class="panel hidden">
+        <h2>Thùng rác</h2>
+        <p class="muted">File đã xóa tạm sẽ nằm ở đây. Bạn có thể khôi phục hoặc xóa vĩnh viễn.</p>
+        <div class="table-wrap" id="trashTableContainer"></div>
+      </section>
+
+      <section id="helpSection" class="panel hidden">
+        <h2>Hướng dẫn sử dụng hệ thống</h2>
+        <p class="muted">Thực hiện theo các bước dưới đây để tải file, chia sẻ liên kết và quản lý dữ liệu hiệu quả.</p>
+
+        <div class="help-block">
+          <h3>Bước 1: Đăng file</h3>
+          <ol class="help-list">
+            <li>Vào mục <strong>Đăng file</strong> trên thanh menu.</li>
+            <li>Nhấn <strong>Chọn file</strong> hoặc kéo thả file vào vùng upload.</li>
+            <li>Nhấn <strong>Đăng file</strong> để gửi file lên hệ thống.</li>
+            <li>Giới hạn mỗi file: <strong>tối đa 1GB</strong>.</li>
+          </ol>
+        </div>
+
+        <div class="help-block">
+          <h3>Bước 2: Chia sẻ liên kết</h3>
+          <ol class="help-list">
+            <li>Sau khi upload thành công, hệ thống sẽ tạo <strong>link tải file</strong>.</li>
+            <li>Nhấn <strong>Copy link</strong> để sao chép liên kết gửi cho người nhận.</li>
+            <li>Người nhận mở link và xác nhận trước khi tải xuống.</li>
+          </ol>
+        </div>
+
+        <div class="help-block">
+          <h3>Bước 3: Quản lý file</h3>
+          <ol class="help-list">
+            <li>Vào <strong>Danh sách file</strong> để xem, copy link hoặc xóa file.</li>
+            <li>File đã xóa tạm sẽ chuyển vào <strong>Thùng rác</strong>.</li>
+            <li>Tại Thùng rác, bạn có thể <strong>xóa vĩnh viễn</strong> nếu không cần nữa.</li>
+          </ol>
+        </div>
+
+        <div class="help-note">
+          <strong>Lưu ý:</strong> Hãy kiểm tra đúng file trước khi xóa vĩnh viễn vì thao tác này không thể hoàn tác.
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 Quang File Transfer • Đồ án sinh viên Nguyễn Tá Quảng</footer>
+
+    <script src="/portal.js"></script>
+  </body>
+</html>

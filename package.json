@@ -1,0 +1,23 @@
+{
+  "name": "NguyenTaQuang-dev-start",
+  "version": "1.0.0",
+  "description": "Đồ án do  Nguyễn Tá Quảng-TH29.23 thực hiện",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sqlite",
+    "file-upload"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.1.0"
+  }
+}
